@@ -1,0 +1,17 @@
+{
+	"name": "ModbusRTU",
+	"description": "Einstellungen für ModbusRTU",
+	"properties" :[ {"name" : "Port", "dataType":"text", "inputType":"free", "description":"Port"},
+					{"name" : "Baud", "dataType":"number", "description":"Baudrate","inputType":"selection",
+					  "values":[{"value":2400, "display":2400}, {"value":4800, "display":4800}, {"value":9600, "display":9600}, {"value":19200, "display":19200}, {"value":38400, "display":38400}, {"value":57600, "display":57600}, {"value":76800, "display":76800}, {"value":115200, "display":115200}], "defaultValue":19200
+					},
+					
+					{"name" : "Stopbits", "dataType":"number", "inputType":"selection", "description" : "Stopbits",
+					  "values":[{"value":1, "display":1},{"value":2, "display":2}], "defaultValue":1
+					},
+					
+					{"name" : "Parity", "dataType":"text", "inputType":"selection", "description":"Parity",
+					  "values":[{"value":"N", "display":"None"}, {"value":"O", "display":"Odd"}, {"value":"E", "display":"Even"}], "defaultValue" : "None"
+					}
+				  ]
+}
