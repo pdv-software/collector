@@ -59,16 +59,6 @@ class Collector
         return $row;
     }
 	
-	public function getProperties($id)
-    {
-        $id = (int) $id;
-        if (!$this->exist($id)) return array('success'=>false, 'message'=>'Collector does not exist');
-
-        $result = $this->mysqli->query("SELECT `properties` FROM collector WHERE id = '$id'");
-        $row = (array) $result->fetch_object();
-
-        return $row;
-    }
 	
 	public function get_list($userid)
     {
@@ -141,6 +131,27 @@ class Collector
 		}
     }
 	
+	public function delete($id)
+    {
+        $id = (int) $id;
+        if (!$this->exist($id)) return array('success'=>false, 'message'=>'Collector does not exist');
+
+        if ($this->redis) {
+            $result = $this->mysqli->query("SELECT userid FROM collecotr WHERE `id` = '$id'");
+            $row = (array) $result->fetch_object();
+        }
+
+        $result = $this->mysqli->query("DELETE FROM collector WHERE `id` = '$id'");
+        if (isset($collector_exists_cache[$id])) { unset($collector_exists_cache[$id]); } // Clear static cache
+        
+        if ($this->redis) {
+            if (isset($row['userid']) && $row['userid']) {
+                $this->redis->delete("collector:".$id);
+                $this->load_to_redis($row['userid']);
+            }
+        }
+    }
+	
 	public function set_fields($id,$fields)
     {
         $id = (int) $id;
@@ -153,9 +164,9 @@ class Collector
         // Repeat this line changing the field name to add fields that can be updated:
         if (isset($fields->name)) $array[] = "`name` = '".preg_replace('/[^\p{L}_\p{N}\s-:]/u','',$fields->name)."'";
         if (isset($fields->description)) $array[] = "`description` = '".preg_replace('/[^\p{L}_\p{N}\s-:]/u','',$fields->description)."'";
-        if (isset($fields->active)) $array[] = "`active` = '".preg_replace('/[^\p{N}]/u','',$fields->active)."'";
-		if (isset($fields->interval)) $array[] = "`interval` = '".preg_replace('/[^\p{N}]/u','',$fields->interval)."'";
-        if (isset($fields->public)) $array[] = "`public` = '".preg_replace('/[^\p{N}]/u','',$fields->public)."'";
+        if (isset($fields->active)) $array[] = "`active` = ".preg_replace('/[^\p{N}]/u','',$fields->active);
+		if (isset($fields->interval)) $array[] = "`interval` = ".preg_replace('/[^\p{N}]/u','',$fields->interval);
+        if (isset($fields->public)) $array[] = "`public` = ".preg_replace('/[^\p{N}]/u','',$fields->public);
         if (isset($fields->type)){
 			$array[] = "`type` = '".preg_replace('/[^\/\|\,\w\s-:]/','',$fields->type)."'";
 			$array[] = "`properties` = ''";

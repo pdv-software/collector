@@ -30,12 +30,6 @@ var collector = {
         return result;
     },
 	
-	'properties':function(id)
-	{
-		var result = {};
-        $.ajax({ url: path+"collector/properties.json", dataType: 'json', async: false, success: function(data) {result = data;} });
-        return result;
-	}
 
     /*'settings':function(id, data)
     {
