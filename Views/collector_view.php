@@ -66,7 +66,7 @@
         </p>
     </div>
     <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true"><?php echo _('Cancel'); ?></button>
+        <button id="cancelSettingsCollector" class="btn" data-dismiss="modal" aria-hidden="true"><?php echo _('Cancel'); ?></button>
         <button id="confirmSettingsCollector" class="btn btn-primary"><?php echo _('Save'); ?></button>
     </div>
 </div>
@@ -224,6 +224,10 @@
 	$('#collectorSettings').html('');
 	var newProps = JSON.stringify(data.properties);
 	table.data[rowid]['properties'] = newProps;
+  });
+  
+  $("#cancelSettingsCollector").click(function(){
+	$('#collectorSettings').html('');  
   });
 
 
