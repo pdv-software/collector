@@ -21,7 +21,7 @@
 
 <div>
     <div id="apihelphead" style="float:right;"><a href="api"><?php echo _('Collectors Help'); ?></a></div>
-    <div id="localheading"><h2><?php echo _('Collectores'); ?></h2></div>
+    <div id="localheading"><h2><?php echo _('Collectors'); ?></h2></div>
 
     <div id="table"><div align='center'><?php echo _("loading..."); ?></div></div>
 	
@@ -182,7 +182,7 @@
 	  if(colTemplate !== null){
 	    $('#collectorSettingsName').html(type);
 	    var container = $('#collectorSettings');
-	    var visualizer = new PropertiesVisualizer();
+	    
 	    rowid = $(this).attr('row');
 	    var props = table.data[rowid]['properties'];
 	    if(props === ""){
@@ -190,7 +190,13 @@
 	    }else{
 		props = JSON.parse(props);
 	    }
-	    settingInputs = visualizer.visualize(colTemplate.properties, container, props);
+            if(colTemplate.properties){
+              var visualizer = new PropertiesVisualizer();
+	      settingInputs = visualizer.visualize(colTemplate.properties, container, props);
+            }else{
+              container.html('<?php echo _("No additional settings available."); ?>');  
+              settingInputs = [];   
+            }
 	    $('#collectorSettingsModal').attr('collectorid',table.data[$(this).attr('row')]['id']);
             $('#collectorSettingsModal').modal('show');
 	  }
@@ -219,8 +225,9 @@
         data.properties[id] = val;
       }
     });
-    var result = collector.set(id, data);
-    alert(result['message']);
+    if(!$.isEmptyObject(data.properties)){
+      collector.set(id, data);
+    }
     $('#collectorSettingsModal').modal('hide');
     $('#collectorSettings').html('');
     var newProps = JSON.stringify(data.properties);
