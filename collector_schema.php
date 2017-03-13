@@ -5,7 +5,7 @@ $schema['collector'] = array(
   'userid' => array('type' => 'int(11)'),
   'name' => array('type' => 'varchar(32)'),
   'active' => array('type' => 'tinyint(1)', 'default'=>'0'),
-  'type' => array('type' => 'varchar(32)'),
+  'type' => array('type' => 'varchar(50)'),
   'interval' => array('type' => 'int(11)', 'default'=>'0'),
   'description' => array('type' => 'varchar(200)'),
   'properties' => array('type' => 'text', 'default' => ''),
