@@ -165,15 +165,15 @@ class Collector
         if (isset($fields->name)) $array[] = "`name` = '".preg_replace('/[^\p{L}_\p{N}\s-:]/u','',$fields->name)."'";
         if (isset($fields->description)) $array[] = "`description` = '".preg_replace('/[^\p{L}_\p{N}\s-:]/u','',$fields->description)."'";
         if (isset($fields->active)) $array[] = "`active` = ".preg_replace('/[^\p{N}]/u','',$fields->active);
-		if (isset($fields->interval)) $array[] = "`interval` = ".preg_replace('/[^\p{N}]/u','',$fields->interval);
+	if (isset($fields->interval)) $array[] = "`interval` = ".preg_replace('/[^\p{N}]/u','',$fields->interval);
         if (isset($fields->public)) $array[] = "`public` = ".preg_replace('/[^\p{N}]/u','',$fields->public);
         if (isset($fields->type)){
-			$array[] = "`type` = '".preg_replace('/[^\/\|\,\w\s-:]/','',$fields->type)."'";
-			$array[] = "`properties` = ''";
-		}
-		if(isset($fields->properties)){
-			$array[] = "`properties` = '".json_encode($fields->properties)."'";
-		}
+	    $array[] = "`type` = '".preg_replace('/[^\/\|\,\w\s-:]/','',$fields->type)."'";
+	    $array[] = "`properties` = ''";
+	}
+	if(isset($fields->properties)){
+	    $array[] = "`properties` = '".json_encode($fields->properties)."'";
+	}
 
         // Convert to a comma seperated string for the mysql query
         $fieldstr = implode(",",$array);
