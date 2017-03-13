@@ -1,0 +1,215 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: emoncms3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-13 22:11+0100\n"
+"PO-Revision-Date: 2017-03-13 22:13+0100\n"
+"Last-Translator: Frank Dille\n"
+"Language-Team: @sumpfing <anne@sumpfing.de>\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.8.12\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ../../..\n"
+
+#: ../../../Views/collector_api.php:6
+msgid "Collector API"
+msgstr "Collector API"
+
+#: ../../../Views/collector_api.php:7
+msgid "Apikey authentication"
+msgstr "Apikey Authentisierung"
+
+#: ../../../Views/collector_api.php:8
+msgid ""
+"If you want to call any of the following actions when your not logged in you "
+"have this options to authenticate with the API key:"
+msgstr ""
+"Wenn Sie die folgenden Aktionen ohne vorherige Anmeldung ausführen, muss der "
+"API Key hinzugefügt werden:"
+
+#: ../../../Views/collector_api.php:9
+msgid "Append on the URL of your request: &apikey=APIKEY"
+msgstr "Der URL hinzufügen: &apikey=APIKEY"
+
+#: ../../../Views/collector_api.php:10
+msgid "Use POST parameter: \"apikey=APIKEY\""
+msgstr "POST Parameter: \"apikey=APIKEY\""
+
+#: ../../../Views/collector_api.php:11
+msgid "Add the HTTP header: \"Authorization: Bearer APIKEY\""
+msgstr "HTTP Header: \"Authorization: Bearer APIKEY\""
+
+#: ../../../Views/collector_api.php:12
+msgid "Read only:"
+msgstr "Lesen:"
+
+#: ../../../Views/collector_api.php:15
+msgid "Read & Write:"
+msgstr "Lesen und Schreiben"
+
+#: ../../../Views/collector_api.php:20
+msgid "Available HTML URLs"
+msgstr "Verfügbare HTML URLs"
+
+#: ../../../Views/collector_api.php:22
+msgid "The collector list view"
+msgstr "Liste der Collectoren"
+
+#: ../../../Views/collector_api.php:23
+msgid "This page"
+msgstr "Collector API (aktuelle Seite)"
+
+#: ../../../Views/collector_api.php:26
+msgid "Available JSON commands"
+msgstr "JSON Befehle"
+
+#: ../../../Views/collector_api.php:27
+msgid "To use the json api the request url needs to include <b>.json</b>"
+msgstr ""
+"Bei der Benutzung der json API muss der URL <b>.json</b> hinzugefügt werden."
+
+#: ../../../Views/collector_api.php:29
+msgid "Collector actions"
+msgstr "Collector-Aktionen"
+
+#: ../../../Views/collector_api.php:31
+msgid "List collectors"
+msgstr "Collector-Liste"
+
+#: ../../../Views/collector_api.php:32
+msgid "Get collector details"
+msgstr "Collector Details"
+
+#: ../../../Views/collector_api.php:33
+msgid "Add a collector"
+msgstr "Collector anlegen"
+
+#: ../../../Views/collector_api.php:34 ../../../Views/collector_view.php:43
+msgid "Delete collector"
+msgstr "Collector löschen"
+
+#: ../../../Views/collector_api.php:35
+msgid "Update collector"
+msgstr "Collector Aktualisieren"
+
+#: ../../../Views/collector_api.php:36
+msgid "List templates"
+msgstr "Vorlagenliste"
+
+#: ../../../Views/collector_api.php:40
+msgid "Collectors templates documentation"
+msgstr "Dokumentation Collector-Vorlagen"
+
+#: ../../../Views/collector_api.php:41
+msgid ""
+"Template files are located at <b>'\\Modules\\collector\\data\\*.json'</b>"
+msgstr ""
+"Vorlagen Dateien werden abgelegt unter <b>'\\Modules\\collector\\data\\*."
+"json'</b>"
+
+#: ../../../Views/collector_api.php:42
+msgid "Each file defines a collector type and its properties."
+msgstr "Jede Datei definiert einen Collector-Typ und seine Eigenschaften."
+
+#: ../../../Views/collector_view.php:23
+msgid "Collectors Help"
+msgstr "Collector API Hilfe"
+
+#: ../../../Views/collector_view.php:24
+msgid "Collectors"
+msgstr "Collectoren"
+
+#: ../../../Views/collector_view.php:26
+msgid "loading..."
+msgstr "wird geladen ..."
+
+#: ../../../Views/collector_view.php:30
+msgid "No collectors"
+msgstr "Kein Collector"
+
+#: ../../../Views/collector_view.php:31
+msgid "There are no collectors configured. Please add a new collector."
+msgstr ""
+"Es ist kein Collector konfiguriert. Bitte erstellen Sie einen neuen "
+"Collector."
+
+#: ../../../Views/collector_view.php:36
+msgid "New collector"
+msgstr "Neuer Collector"
+
+#: ../../../Views/collector_view.php:46
+msgid "Deleting a collector is permanent."
+msgstr "Das Löschen eines Collectors ist endgültig!"
+
+#: ../../../Views/collector_view.php:48
+msgid "Are you sure you want to delete?"
+msgstr "Wirklich löschen?"
+
+#: ../../../Views/collector_view.php:52 ../../../Views/collector_view.php:69
+msgid "Cancel"
+msgstr "Abbruch"
+
+#: ../../../Views/collector_view.php:53
+msgid "Delete permanently"
+msgstr "Dauerhaft löschen"
+
+#: ../../../Views/collector_view.php:60
+msgid "Collector Settings"
+msgstr "Einstellungen"
+
+#: ../../../Views/collector_view.php:63
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: ../../../Views/collector_view.php:70
+msgid "Save"
+msgstr "Speichern"
+
+#: ../../../Views/collector_view.php:87
+msgid "Name"
+msgstr "Name"
+
+#: ../../../Views/collector_view.php:88
+msgid "Description"
+msgstr "Beschreibung"
+
+#: ../../../Views/collector_view.php:89
+msgid "Type"
+msgstr "Typ"
+
+#: ../../../Views/collector_view.php:90
+msgid "Active"
+msgstr "Aktiv"
+
+#: ../../../Views/collector_view.php:91
+msgid "Interval"
+msgstr "Intervall"
+
+#: ../../../Views/collector_view.php:92
+msgid "Public"
+msgstr "Öffentlich"
+
+#: ../../../Views/collector_view.php:94
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: ../../../Views/collector_view.php:95
+msgid "Delete"
+msgstr "Löschen"
+
+#: ../../../Views/collector_view.php:97
+msgid "Collector Properties"
+msgstr "Eigenschaften"
+
+#: ../../../Views/collector_view.php:198
+msgid "No additional settings available."
+msgstr "Keine zusätzlichen Einstellungen verfügbar."
+
+#: ../../../collector_menu.php:7
+msgid "Collector Setup"
+msgstr "Collectoren"

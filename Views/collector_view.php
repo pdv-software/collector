@@ -94,7 +94,7 @@
     'edit-action':{'title':'', 'type':"edit", 'tooltip':"<?php echo _('Edit'); ?>"},
     'delete-action':{'title':'', 'type':"delete", 'tooltip':"<?php echo _('Delete'); ?>"},
     //'view-action':{'title':'', 'type':"iconbasic", 'icon':'icon-wrench'},
-    'create-action':{'title':'', 'type':"iconbasic", 'icon':'icon-wrench', 'tooltip':"<?php echo _('Collector Settings'); ?>"}
+    'create-action':{'title':'', 'type':"iconbasic", 'icon':'icon-wrench', 'tooltip':"<?php echo _('Collector Properties'); ?>"}
   };
 
   update();
