@@ -95,7 +95,7 @@
     'delete-action':{'title':'', 'type':"delete", 'tooltip':"<?php echo _('Delete'); ?>"},
     //'view-action':{'title':'', 'type':"iconbasic", 'icon':'icon-wrench'},
     'create-action':{'title':'', 'type':"iconbasic", 'icon':'icon-wrench', 'tooltip':"<?php echo _('Collector Settings'); ?>"}
-  }
+  };
 
   update();
 
@@ -112,7 +112,7 @@
       }
 */
       table.draw();
-      if (table.data.length != 0) {
+      if (table.data.length !== 0) {
         $("#nocollectors").hide();
         $("#localheading").show();
         $("#apihelphead").show();
@@ -174,25 +174,25 @@
 	if(type !== ''){
 	  
 	  for(col in collectorTemplates){
-		  if(col === type){
-			  colTemplate = collectorTemplates[col];
-			  break;
-		  }
+	    if(col === type){
+	      colTemplate = collectorTemplates[col];
+	      break;
+	    }
 	  }
-	  if(colTemplate != null){
+	  if(colTemplate !== null){
 	    $('#collectorSettingsName').html(type);
-		var container = $('#collectorSettings');
-		var visualizer = new PropertiesVisualizer();
-		rowid = $(this).attr('row');
-		var props = table.data[rowid]['properties'];
-		if(props === ""){
-			props = {};
-		}else{
-			props = JSON.parse(props);
-		}
-		settingInputs = visualizer.visualize(colTemplate.properties, container, props);
+	    var container = $('#collectorSettings');
+	    var visualizer = new PropertiesVisualizer();
+	    rowid = $(this).attr('row');
+	    var props = table.data[rowid]['properties'];
+	    if(props === ""){
+		props = {};
+	    }else{
+		props = JSON.parse(props);
+	    }
+	    settingInputs = visualizer.visualize(colTemplate.properties, container, props);
 	    $('#collectorSettingsModal').attr('collectorid',table.data[$(this).attr('row')]['id']);
-        $('#collectorSettingsModal').modal('show');
+            $('#collectorSettingsModal').modal('show');
 	  }
 
 	}
@@ -202,28 +202,29 @@
   $("#confirmSettingsCollector").click(function()
   {
     var id = $('#collectorSettingsModal').attr('collectorid');
-	var data = {'properties':{}};
-	$.each(settingInputs, function(key, value){
-		var id = value.attr("id");
-		var val = value.val();
-		var dataType = "";
-		$.each(colTemplate.properties, function(key, value){
-			if(value.name == id){
-				dataType = value.dataType;
-			}
-		});
-		if(dataType === "number"){
-		  data.properties[id] = parseFloat(val);
-		}else{
-		  data.properties[id] = val;
-		}
-	});
+    var data = {'properties':{}};
+    $.each(settingInputs, function(key, value){
+      var id = value.attr("id");
+      var val = value.val();
+      var dataType = "";
+      $.each(colTemplate.properties, function(key, value){
+	if(value.name === id){
+	dataType = value.dataType;
+          return false;
+	}
+      });
+      if(dataType === "number"){
+        data.properties[id] = parseFloat(val);
+      }else{
+        data.properties[id] = val;
+      }
+    });
     var result = collector.set(id, data);
     alert(result['message']);
     $('#collectorSettingsModal').modal('hide');
-	$('#collectorSettings').html('');
-	var newProps = JSON.stringify(data.properties);
-	table.data[rowid]['properties'] = newProps;
+    $('#collectorSettings').html('');
+    var newProps = JSON.stringify(data.properties);
+    table.data[rowid]['properties'] = newProps;
   });
   
   $("#cancelSettingsCollector").click(function(){
