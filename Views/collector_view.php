@@ -170,6 +170,7 @@
   });
  
   $("#table").on('click', '.icon-wrench', function() {
+        $('#collectorSettings').html('');
 	var type = table.data[$(this).attr('row')]['type'];
 	if(type !== ''){
 	  
