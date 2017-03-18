@@ -1,0 +1,8 @@
+{
+  "name": "LocalSmappee",
+  "description" : "Smappee Energy Monitor",
+  "properties" : [
+    {"name" : "Host"    , "dataType" : "text", "inputType":"free", "description":"Smappee Local Host check http://<HOST>/smappee.html"},
+    {"name" : "Password", "dataType" : "text", "inputType":"free", "description":"Smappee Local Password", "defaultValue":"Admin"}
+  ]
+}

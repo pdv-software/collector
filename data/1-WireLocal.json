@@ -1,0 +1,5 @@
+{
+  "name" : "1-WireLocal",
+  "description" : "Read local 1-Wire devices",
+  "properties" : null
+}

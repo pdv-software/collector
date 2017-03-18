@@ -1,8 +1,8 @@
 {
-	"name": "ModbusTCP",
-	"description" : "Einstellungen für ModbusTCP",
-	"properties" : [
-						{"name" : "Host", "dataType" : "text",  "inputType" : "free", "description":"Host"},
-						{"name" : "Port", "dataType" : "number", "inputType" : "range", "description":"Port","rangeMin":1, "rangeMax":65535, "defaultValue" : 502}
-				   ]
+  "name": "ModbusTCP",
+  "description" : "ModbusTCP settings",
+  "properties" : [
+    {"name" : "Host", "dataType" : "text"  , "inputType" : "free", "description":"Hostname / IP"},
+    {"name" : "Port", "dataType" : "number", "inputType" : "range", "description":"TCP Port","rangeMin":1, "rangeMax":65535, "defaultValue" : 502}
+  ]
 }
