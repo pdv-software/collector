@@ -60,10 +60,8 @@
         <h3 id="collectorSettingsModalLabel"><?php echo _('Collector Settings'); ?></h3>
     </div>
     <div class="modal-body">
-        <p><span id="collectorSettingsName"></span> <?php echo _('Settings'); ?>
-		   <br><br>
-		   <div id="collectorSettings"></div>
-        </p>
+      <b><span id="collectorSettingsName"></span></b><br><br>
+      <div id="collectorSettings"></div>
     </div>
     <div class="modal-footer">
         <button id="cancelSettingsCollector" class="btn" data-dismiss="modal" aria-hidden="true"><?php echo _('Cancel'); ?></button>
@@ -171,38 +169,39 @@
  
   $("#table").on('click', '.icon-wrench', function() {
         $('#collectorSettings').html('');
-	var type = table.data[$(this).attr('row')]['type'];
-	if(type !== ''){
-	  
-	  for(col in collectorTemplates){
-	    if(col === type){
-	      colTemplate = collectorTemplates[col];
-	      break;
-	    }
-	  }
-	  if(colTemplate !== null){
-	    $('#collectorSettingsName').html(type);
-	    var container = $('#collectorSettings');
-	    
-	    rowid = $(this).attr('row');
-	    var props = table.data[rowid]['properties'];
-	    if(props === ""){
-		props = {};
-	    }else{
-		props = JSON.parse(props);
-	    }
+        var type = table.data[$(this).attr('row')]['type'];
+        var name = table.data[$(this).attr('row')]['name'];
+        if(type !== ''){
+          
+          for(col in collectorTemplates){
+            if(col === type){
+              colTemplate = collectorTemplates[col];
+              break;
+            }
+          }
+          if(colTemplate !== null){
+            $('#collectorSettingsName').html(name + ' ('+type+')');
+            var container = $('#collectorSettings');
+            
+            rowid = $(this).attr('row');
+            var props = table.data[rowid]['properties'];
+            if(props === ""){
+              props = {};
+            }else{
+              props = JSON.parse(props);
+            }
             if(colTemplate.properties){
               var visualizer = new PropertiesVisualizer();
-	      settingInputs = visualizer.visualize(colTemplate.properties, container, props);
+              settingInputs = visualizer.visualize(colTemplate.properties, container, props);
             }else{
               container.html('<?php echo _("No additional settings available."); ?>');  
               settingInputs = [];   
             }
-	    $('#collectorSettingsModal').attr('collectorid',table.data[$(this).attr('row')]['id']);
+            $('#collectorSettingsModal').attr('collectorid',table.data[$(this).attr('row')]['id']);
             $('#collectorSettingsModal').modal('show');
-	  }
+          }
 
-	}
+  }
     
   });
   
@@ -215,10 +214,10 @@
       var val = value.val();
       var dataType = "";
       $.each(colTemplate.properties, function(key, value){
-	if(value.name === id){
-	dataType = value.dataType;
+        if(value.name === id){
+          dataType = value.dataType;
           return false;
-	}
+        }
       });
       if(dataType === "number"){
         data.properties[id] = parseFloat(val);
@@ -236,9 +235,7 @@
   });
   
   $("#cancelSettingsCollector").click(function(){
-	$('#collectorSettings').html('');  
+  $('#collectorSettings').html('');  
   });
 
-
 </script>
-
