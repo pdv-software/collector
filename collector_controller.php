@@ -40,7 +40,7 @@
                     if ($route->action == "get") $result = $collectorget;
                     if ($route->action == "delete") $result = $collector->delete($collectorid);
                     if ($route->action == 'set') $result = $collector->set_fields($collectorid, get('fields'));
-					if ($route->action == 'properties') $result = $collector->getProperties($collectorid);
+                    if ($route->action == 'properties') $result = $collector->getProperties($collectorid);
                 }
             }
             else
